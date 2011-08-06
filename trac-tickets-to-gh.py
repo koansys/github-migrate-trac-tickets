@@ -160,7 +160,7 @@ for tid, summary, description, owner, milestone, component, status in tickets:
             # prefix comment with author as git doesn't keep them separate
             if author:
                 body = "[%s] %s" % (author, body)
-            logging.debug('issue comment: %s' % body[:40].replace('\n', ' '))
+            logging.debug('issue comment: %s' % body[:40]) # TODO: escape newlines
             github.issue_comments(gh_issue['number'], data={'body': body})
     # Close tickets if they need it.
     # The v3 API says we should use PATCH, but

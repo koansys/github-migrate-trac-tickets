@@ -1,6 +1,9 @@
 import base64
-import json as simplejson
 import urllib2
+try:
+    import json
+except ImportError:
+    import simplejson as json
 
 class GitHub(object):
     """Connections, queries and posts to GitHub.
@@ -27,10 +30,10 @@ class GitHub(object):
         try:
             if data:
                     req.add_header("Content-Type", "application/json")
-                    res = urllib2.urlopen(req, simplejson.dumps(data))
+                    res = urllib2.urlopen(req, json.dumps(data))
             else:
                     res =  urllib2.urlopen(req)
-            return simplejson.load(res)
+            return json.load(res)
         except (IOError, urllib2.HTTPError), e:
             raise RuntimeError("Error on url=%s e=%s" % (url, e))
 
