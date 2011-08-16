@@ -32,7 +32,7 @@ test out the migration first.
 Create a temporary new GitHub repository, like 'yourorg/killme'. Then
 push your Trac tickets into it, for example:
 
-  ./trac-tickets-to-gh.py ~/zerowait-trac.db yourname yourpasswd yourorg/killme
+  ./trac-tickets-to-gh.py ~/oldproject-trac.db yourname yourpasswd yourorg/killme
 
 Then verify labels and milestones migrated as expected. Finally,
 destroy the test repository.
